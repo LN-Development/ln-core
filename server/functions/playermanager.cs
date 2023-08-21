@@ -45,6 +45,10 @@ public class LNCoreFunctions
 
     public Tuple<List<int>, int> GetPlayersOnDuty(string job)
     {
+        public Dictionary<string, object> Functions { get; set; } = new Dictionary<string, object>();
+    public Dictionary<string, object> PlayerBuckets { get; set; } = new Dictionary<string, object>();
+    public Dictionary<string, object> EntityBuckets { get; set; } = new Dictionary<string, object>();
+    public Dictionary<string, object> UsableItems { get; set; } = new Dictionary<string, object>();
         List<int> players = new List<int>();
         int count = 0;
 
