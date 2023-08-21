@@ -46,4 +46,14 @@ public class LNCoreFunctions
         if (API.GetResourceState("ln-inventory") == "missing") return;
         API.Export("ln-inventory", "UseItem", source, item);
     }
+
+    public bool HasItem(int source, string items, int amount)
+    {
+        if (API.GetResourceState("qb-inventory") == "missing")
+        {
+            return false;
+        }
+
+        return API.Export<bool>("qb-inventory", "HasItem", source, items, amount);
+    }
 }
