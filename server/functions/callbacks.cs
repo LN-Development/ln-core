@@ -22,6 +22,11 @@ public static class Exports
 
 public class LNCoreFunctions
 {
+
+    public Dictionary<string, object> Functions { get; set; } = new Dictionary<string, object>();
+    public Dictionary<string, object> PlayerBuckets { get; set; } = new Dictionary<string, object>();
+    public Dictionary<string, object> EntityBuckets { get; set; } = new Dictionary<string, object>();
+    public Dictionary<string, object> UsableItems { get; set; } = new Dictionary<string, object>();
     public void TriggerClientCallback(string name, int source, Delegate cb, params object[] args)
     {
         LNCore.ClientCallbacks[name] = cb;
