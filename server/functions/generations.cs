@@ -22,6 +22,11 @@ public static class Exports
 
 public class LNCoreFunctions
 {
+
+    public Dictionary<string, object> Functions { get; set; } = new Dictionary<string, object>();
+    public Dictionary<string, object> PlayerBuckets { get; set; } = new Dictionary<string, object>();
+    public Dictionary<string, object> EntityBuckets { get; set; } = new Dictionary<string, object>();
+    public Dictionary<string, object> UsableItems { get; set; } = new Dictionary<string, object>();
     public Vehicle SpawnVehicle(int source, dynamic model, Vector4 coords = null, bool warp = false)
     {
         Ped ped = new Ped(API.GetPlayerPed(source));
