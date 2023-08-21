@@ -171,4 +171,32 @@ public class LNCoreFunctions
     {
         return API.IsPlayerAceAllowed(source, $"lnCore.{permission}");
     }
+
+
+    public async Task<Tuple<bool, string>> IsPlayerBanned(int source)
+    {
+        string plicense = LNCore.Functions.GetIdentifier(source, "license");
+        dynamic result = await MySQL.SingleQuery("SELECT * FROM bans WHERE license = ?", new object[] { plicense });
+
+        if (result == null)
+        {
+            return new Tuple<bool, string>(false, "");
+        }
+
+        if (API.GetGameTimer() < result.expire)
+        {
+            DateTime expireDateTime = DateTime.Now.AddSeconds(result.expire - API.GetGameTimer());
+            string formattedExpire = expireDateTime.ToString("dd/MM/yyyy HH:mm");
+
+            return new Tuple<bool, string>(true, $"You have been banned from the server:\n{result.reason}\nYour ban expires {formattedExpire}\n");
+        }
+        else
+        {
+            await MySQL.ExecuteQuery("DELETE FROM bans WHERE id = ?", new object[] { result.id });
+        }
+
+        return new Tuple<bool, string>(false, "");
+    }
+
+    
 }
