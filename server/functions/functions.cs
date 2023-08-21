@@ -47,6 +47,23 @@ public class LNCoreFunctions
         return null;
     }
 
+    public bool IsLicenseInUse(string license)
+    {
+        var players = API.GetPlayers();
+        
+        foreach (int player in players)
+        {
+            var identifiers = API.GetPlayerIdentifiers(player);
+            
+            if (identifiers.Any(id => id.Contains("license") && id == license))
+            {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+
 
 }
 
