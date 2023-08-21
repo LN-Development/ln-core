@@ -22,6 +22,12 @@ public static class Exports
 
 public class LNCoreFunctions
 {
+
+
+    public Dictionary<string, object> Functions { get; set; } = new Dictionary<string, object>();
+    public Dictionary<string, object> PlayerBuckets { get; set; } = new Dictionary<string, object>();
+    public Dictionary<string, object> EntityBuckets { get; set; } = new Dictionary<string, object>();
+    public Dictionary<string, object> UsableItems { get; set; } = new Dictionary<string, object>();
     public void Kick(int source, string reason, Action<string> setKickReason, DeferralManager deferrals)
     {
         reason = $"\n{reason}\n🔸 Check our Discord for further information: {LNCore.Config.Server.Discord}";
