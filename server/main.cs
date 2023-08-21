@@ -12,7 +12,7 @@ public static class Exports
 {
     public static LNCore GetCoreObject()
     {
-        LNCore LNCore = new LNCore();
-        return LNCore;
+        LNCore lnCore = new LNCore();
+        return lnCore;
     }
 }
