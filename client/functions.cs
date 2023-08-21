@@ -19,9 +19,10 @@ public static class Exports
     }
 }
 
-//Pega informação do player
+
 public class LNCoreFunctions
 {
+    //Pega informação do player
     public static object GetPlayerData(Action<object> cb = null)
     {
         if (cb == null)
@@ -30,14 +31,12 @@ public class LNCoreFunctions
         cb(LNCore.PlayerData);
         return null;
     }
-}
-
-//Pega coordenada do player
-public class LNCoreFunctions
-{
+    //Pega coordenada do player
     public static Vector4 GetCoords(int entity)
     {
         Vector3 coords = API.GetEntityCoords(entity);
         return new Vector4(coords.X, coords.Y, coords.Z, API.GetEntityHeading(entity));
     }
 }
+
+
