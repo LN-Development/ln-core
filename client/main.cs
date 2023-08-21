@@ -1,4 +1,8 @@
+using System;
 using System.Collections.Generic;
+using CitizenFX.Core;
+using static CitizenFX.Core.Native.API;
+
 
 public class LNCorePlayerData
 {
