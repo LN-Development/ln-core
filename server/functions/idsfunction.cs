@@ -23,6 +23,11 @@ public static class Exports
 
 public class LNCoreFunctions
 {
+
+    public Dictionary<string, object> Functions { get; set; } = new Dictionary<string, object>();
+    public Dictionary<string, object> PlayerBuckets { get; set; } = new Dictionary<string, object>();
+    public Dictionary<string, object> EntityBuckets { get; set; } = new Dictionary<string, object>();
+    public Dictionary<string, object> UsableItems { get; set; } = new Dictionary<string, object>();
     public dynamic GetPlayer(int source)
     {
         if (source is int)
